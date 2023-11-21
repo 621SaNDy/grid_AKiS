@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../style/arkusz_zerujacy.css">
+    <link rel="stylesheet" href="../../style/podstrony.css">
+
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    <title>Informacje</title>
+
+    <style>
+        .grid-item {
+            background-color: #f78d8d;
+            padding: 10px;
+        }
+        .przyklad{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            height: 500px;
+        }
+        .przyklad div{
+            border: 4px solid var(--dark-color);
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul class="menu">
+            <li class="arrow1"><a href="../dziecko/justify-align-self.html" >&#171;&#171;</a></li>
+
+            <li><p>czym jest grid?</p>
+                <ul class="dropdown" style="width: 190px;">
+                    <a href="informacje.html"><li>ogólne informacje</li></a>
+                    <a href="grid-lines.html"><li>grid lines</li></a>
+                    <a href="wybor.html"><li>grid vs flexbox</li></a>
+                </ul>
+            </li>
+
+            <li><p>właściwości rodzica</p>
+                <ul class="dropdown" style="width: 260px;">
+                    <a href="../rodzic/template.html"><li>grid-template</li></a>
+                    <a href="../rodzic/gap.html"><li>gap</li></a>
+                    <a href="../rodzic/auto.html"><li>grid-auto</li></a>
+                    <a href="../rodzic/template-area.html"><li>grid-template-areas</li></a>
+                    <a href="../rodzic/justify-align.html"><li>justify i align</li></a>
+                </ul>
+            </li>
+
+            <li><p>właściwości dziecka</p>
+                <ul class="dropdown" style="width: 255px;">
+                    <a href="../dziecko/grid-column.html"><li>grid-column</li></a>
+                    <a href="../dziecko/grid-row.html"><li>grid-row</li></a>
+                    <a href="../dziecko/area.html"><li>grid-area</li></a>
+                    <a href="../dziecko/justify-align-self.html"><li>justify i align self</li></a>
+                </ul>
+            </li>
+
+            <li class="arrow2"><a href="informacje.html" >&#187;&#187;</a></li>
+        </ul>
+    </nav>
+
+    <div class="cont">
+        <header>
+            <h1>Grid vs Flexbox</h1>
+        </header>
+
+        <div class="opisy flex">
+            <div class="opis">
+                <p>
+                    Grid i Flexbox to dwa najpopularniejsze sposoby pozycjonowania elementów. Czasem możemy jednak zastanawiać który jest lepszym wyborem
+                </p>
+                <p>
+                    Podstawową różnicą jest fat że Flexbox pozwala pozycjonować elementy w jednym wymiarze, kolumnach albo rzędach. Grid natomiast pozwala pozycjonować w dwóch wymiarach jednocześnie
+                </p>
+                <h2>Grid</h2>
+                <ul>
+                    <li>Pozwala tworzyć bardziej asymetryczne układy</li>
+                    <li>Elementy są bardziej kontorlowane przez rodzica</li>
+                    <li>Lepiej sprawdza się przy układach z wyznaczonymi wymiarami (mniej responsywne)</li>
+                    <li>Pozwala na ustawianie elementów w 2 wymiarach</li>
+                </ul>
+                <h2>Flexbox</h2>
+                <ul>
+                    <li>Łatwiej go zastosować (wystarczy display:flex; aby już zaczęło się pozycjonowanie)</li>
+                    <li>Lepiej sprawdza się w układach z większą responsywnością</li>
+                    <li>Pozwala na ustawianie elementów w 1 wymiarze</li>
+                    <li>Proste ustawianie elementów wewnątrz większych kontenerów</li>
+                
+                </ul>
+                <h2>Posumowanie</h2>
+                <p>Grid i Flebox posiadają wiele różnic nie znaczy to jednak że któryś z nich jest gorszy bądź lepszy. To którego pozycjonowania uzyjemy zależy od sytuacji oraz od naszych preferencji. Dobrze jednak jest znać oba te sposoby by wybrać najbardziej nam odpowiadający. Najczęściej Flexbox jest używany razem z Gridem. </p>
+                <h2 style="text-align: center;margin-top: 50px;">Segmenty są ułożone Gridem, jednak elementy wewnątrz pozycjonowane Flexem</h2>
+            </div>
+
+            <div class="przyklad">
+                    <div class="grid-item" style="background-color: #ff7878;"><p>🦦</p><p>🍎</p><p>🖥️</p></div>
+                    <div class="grid-item" style="grid-area: 1 / 2 / 1 / 5; gap: 50px;background-color: #ffa078;"><p>🦦</p><p>🍎</p><p>🖥️</p></div>
+                    <div class="grid-item" style="grid-area: 1 / 5 / 3 / 5; flex-direction: column; gap: 50px;"><p>🦦</p><p>🍎</p><p>🖥️</p></div>
+                    <div class="grid-item" style="background-color: #ffdd78;"><p>🦦</p><p>🍎</p><p>🖥️</p></div>
+                    <div class="grid-item" style="grid-area: 2 / 1 / 2 / 3;gap:40px;background-color: #9cf090;"><p>🦦</p><p>🍎</p><p>🖥️</p></div>
+                    <div class="grid-item" style="flex-direction: column;gap: 20px;background-color: #9cddf1;"><p>🦦</p><p>🍎</p><p>🖥️</p></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

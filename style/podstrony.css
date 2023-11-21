@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
+
+:root {
+    --light-color: #ffe7e7;
+    --dark-color: #25182e;
+    --accent-1: #ffbe00;
+    --accent-2: #ca1f3d;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    background: var(--light-color);
+    /* background: radial-gradient(circle, #7768C6 0%, #c6c6fa 100%); */
+    min-width: 960px;
+}
+
+.cont {
+    margin: auto;
+    width: 960px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    /* background: linear-gradient(to right, #7768C6 20%, #52449c 40%, #493999 60%,#7768C6 80%);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 2s linear infinite; */
+
+    color: var(--accent-2);
+    font-size: 45px;
+    border-bottom: 10px solid var(--dark-color);
+    border-radius: 20px;
+    width: fit-content;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    gap: 20px;
+    padding-bottom: 15px;
+}
+
+/* header a {
+    background-color: var(--dark-color);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: 0.2s;
+    margin: 0 20px;
+} */
+
+header a:hover {
+    background-color: var(--accent-2);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: 0.2s;
+}
+
+@keyframes shine {
+    to {
+      background-position: 200% center;
+    }
+  }
+
+.przyciski {
+    flex-direction: column;
+    gap: 10px;
+}
+
+.butt {
+    background-color: var(--accent-1);
+    color: var(--dark-color);
+    padding: 15px;
+    border-radius: 10px;
+    width: 200px;
+    height: fit-content;
+    text-align: center;
+    cursor: pointer;
+}
+
+.butt:first-of-type {
+    background-color: var(--accent-2);
+}
+
+.butt:hover{
+    transform: scale(1.02);
+}
+
+.opisy {
+    margin: 20px;
+    flex-direction: column;
+}
+
+strong {
+    color: var(--accent-2);
+}
+
+.przyklad, .opis, .kod {
+    width: 800px;
+}
+
+.opis {
+    padding: 10px;
+}
+
+h2 {
+    font-size: 35px;
+    color: var(--dark-color);
+    margin: 20px 20px 10px;
+}
+
+.opis p {
+    font-size: 20px;
+    line-height: 22px;
+    margin: 15px;
+}
+
+code {
+    padding: 5px;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.przyklad {
+    height: 400px;
+    display: grid;
+    grid-template-columns: 510px 1fr;
+    color: var(--dark-color);
+    border: 10px solid var(--dark-color);
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+.grid-przyklad {
+    width: 510px;
+    border-right: 10px solid var(--dark-color);
+    display: grid;
+    overflow: auto;
+}
+
+.grid-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="range"] {
+    accent-color: var(--accent-2);
+    width: 170px;
+}
+
+nav {
+    width: 100%;
+    background-color: var(--dark-color);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+/* nav ul p:hover{
+    text-decoration: underline;
+
+} */
+
+.arrow1, .arrow2 {
+    display: block;
+    transition: 0.2s;
+}
+
+.arrow1:hover {
+    transform: translateX(-3px);
+    transition: 0.2s;
+}
+
+.arrow2:hover {
+    transform: translateX(3px);
+    transition: 0.2s;
+}
+
+.menu {
+    margin: auto;
+    width: 900px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    position: relative;
+}
+
+.menu > li {
+    display: inline-block;
+    padding: 20px 0;
+    cursor: pointer;
+}
+
+.menu p, .menu > li > a {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 22px;
+    color: var(--accent-1);
+}
+
+.dropdown {
+    font-size: 18px;
+    margin: 20px 0;
+    padding: 5px 0;
+    position: absolute;
+    display: none;
+    background-color: var(--accent-1);
+}
+
+.dropdown li {
+    padding: 12px 15px;
+    z-index: 1;
+}
+
+.dropdown a {
+    text-decoration: none;
+    color: var(--dark-color);
+}
+
+.menu > li:hover > .dropdown {
+    display: block;
+}
+
+.dropdown li:hover {
+    background-color: var(--dark-color);
+    color: var(--accent-2);
+}
+
+.opis ul{
+    list-style-type:disc;
+    margin-left: 80px;
+    font-size: 1.2em;
+}
+
+

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../style/arkusz_zerujacy.css">
+    <link rel="stylesheet" href="../../style/podstrony.css">
+
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    <title>Grid - grid-template-areas</title>
+
+    <style>
+        #grid-p1 {
+            grid-template-areas: 'header header header'
+            '. . aside'
+            '. . aside';
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul class="menu">
+            <li class="arrow1"><a href="../dziecko/area.html">&#171;&#171;</a></li>
+            
+            <li><p>czym jest grid?</p>
+                <ul class="dropdown" style="width: 190px;">
+                    <a href="../info/informacje.html"><li>ogólne informacje</li></a>
+                    <a href="../info/grid-lines.html"><li>grid lines</li></a>
+                    <a href="../info/wybor.html"><li>grid vs flexbox</li></a>
+                </ul>
+            </li>
+
+            <li><p>właściwości rodzica</p>
+                <ul class="dropdown" style="width: 260px;">
+                    <a href="template.html"><li>grid-template</li></a>
+                    <a href="gap.html"><li>gap</li></a>
+                    <a href="auto.html"><li>grid-auto</li></a>
+                    <a href="template-area.html"><li>grid-template-areas</li></a>
+                    <a href="justify-align.html"><li>justify i align</li></a>
+                </ul>
+            </li>
+
+            <li><p>właściwości dziecka</p>
+                <ul class="dropdown" style="width: 255px;">
+                    <a href="../dziecko/grid-column.html"><li>grid-column</li></a>
+                    <a href="../dziecko/grid-row.html"><li>grid-row</li></a>
+                    <a href="../dziecko/area.html"><li>grid-area</li></a>
+                    <a href="../dziecko/justify-align-self.html"><li>justify i align self</li></a>
+                </ul>
+            </li>
+
+            <li class="arrow2"><a href="gap.html">&#187;&#187;</a></li>
+        </ul>
+    </nav>
+
+    <div class="cont">
+        <header>
+            <!-- <a href="#">&#171;&#171;</a> -->
+            <h1>Grid-template-areas</h1>
+            <!-- <a href="#">&#187;&#187;</a> -->
+        </header>
+        <div class="opisy flex">
+            <div class="opis">
+                <p>
+                    Określa obszary w układzie siatki. Jej elementy można nazwać korzystając <br> z grid-area, a następnie
+                    odwoływać się do ich nazwy za pomocą właściwości <strong>grid-template-areas</strong>.
+                </p>
+                <p>
+                    Każdy obszar określony jest za pomocą apostrofów. A aby odnieść się do elementu bez nazwy należy
+                    użyć kropki.
+                </p>
+            </div>
+
+            <div class="przyklad" style="height: 450px;">
+                <div id="grid-p1" class="grid-przyklad" style="gap: 10px;">
+                    <div class="grid-item" style="background-color: #ff7878;grid-area: header;">Header</div>
+                    <div class="grid-item" style="background-color: #ffa078;">1</div>
+                    <div class="grid-item" style="background-color: #ffa078;">2</div>
+                    <div class="grid-item" style="background-color: #ffa078;">3</div>
+                    <div class="grid-item" style="background-color: #ffa078;">4</div>
+                    <div class="grid-item" style="background-color: #ffdd78; grid-area: aside;">Aside</div>
+                </div>
+
+                <div class="przyciski flex">
+                    <code>
+                        .grid-container { <br>
+                            <div style="padding-left: 15px;">
+                                <strong>
+                                grid-template-areas: <br>
+                                'header header header' <br>
+                                '. . aside' <br>
+                                '. . aside'; 
+                                </strong><br>
+                            </div>
+                        } <br>
+                        <br>
+                        .header { <br>
+                            <div style="padding-left: 15px;">
+                                grid-area: header;
+                            </div>
+                        } <br>
+                        <br>
+                        .aside { <br>
+                            <div style="padding-left: 15px;">
+                                grid-area: aside;
+                            </div>
+                        } <br>
+                    </code>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

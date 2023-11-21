@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../style/arkusz_zerujacy.css">
+    <link rel="stylesheet" href="../../style/podstrony.css">
+
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    <title>Grid - grid-row</title>
+
+    <style>
+        .grid-item {
+            background-color: #f78d8d;
+        }
+    </style>
+
+    <script>
+        function przyklad1() {
+            for (let r of document.getElementsByName("p1")) {
+                if (r.checked) {
+                    document.querySelector("#otter1").style.gridRow = r.value;
+                    r.parentElement.style.backgroundColor = "#ca1f3d";
+                }
+                else {
+                    r.parentElement.style.backgroundColor = "#ffbe00";
+                }
+            }
+        }
+
+        function przyklad2() {
+            for (let r of document.getElementsByName("p2")) {
+                if (r.checked) {
+                    document.querySelector("#otter2").style.gridRow = r.value;
+                    r.parentElement.style.backgroundColor = "#ca1f3d";
+                }
+                else {
+                    r.parentElement.style.backgroundColor = "#ffbe00";
+                }
+            }
+        }
+
+        window.addEventListener("load", przyklad1);
+        window.addEventListener("load", przyklad2);
+    </script>
+</head>
+
+<body>
+    <nav>
+        <ul class="menu">
+            <li class="arrow1"><a href="../rodzic/auto.html" >&#171;&#171;</a></li>
+
+            <li><p>czym jest grid?</p>
+                <ul class="dropdown" style="width: 190px;">
+                    <a href="../info/informacje.html"><li>ogólne informacje</li></a>
+                    <a href="../info/grid-lines.html"><li>grid lines</li></a>
+                    <a href="../info/wybor.html"><li>grid vs flexbox</li></a>
+                </ul>
+            </li>
+
+            <li><p>właściwości rodzica</p>
+                <ul class="dropdown" style="width: 260px;">
+                    <a href="../rodzic/template.html"><li>grid-template</li></a>
+                    <a href="../rodzic/gap.html"><li>gap</li></a>
+                    <a href="../rodzic/auto.html"><li>grid-auto</li></a>
+                    <a href="../rodzic/template-area.html"><li>grid-template-areas</li></a>
+                    <a href="../rodzic/justify-align.html"><li>justify i align</li></a>
+                </ul>
+            </li>
+
+            <li><p>właściwości dziecka</p>
+                <ul class="dropdown" style="width: 255px;">
+                    <a href="grid-column.html"><li>grid-column</li></a>
+                    <a href="grid-row.html"><li>grid-row</li></a>
+                    <a href="area.html"><li>grid-area</li></a>
+                    <a href="justify-align-self.html"><li>justify i align self</li></a>
+                </ul>
+            </li>
+
+            <li class="arrow2"><a href="grid-column.html">&#187;&#187;</a></li>
+        </ul>
+    </nav>
+
+    <div class="cont">
+        <header>
+            <h1>Grid-row</h1>
+        </header>
+
+        <div class="opisy flex">
+            <div class="opis">
+                <h2>Start i end</h2>
+                <p>
+                    Do określenia, w jakich dokładnie wierszach ma znajdować się konkretny element, używamy właściwości <strong>grid-row-start</strong> i <strong>grid-row-end</strong>.
+                </p>
+                <p>
+                    Jako wartości przyjmują one numery linii wierszy, na których element ma się zaczynać/kończyć lub wartość <strong>span x</strong> (gdzie x - liczba kolumn, na które ma się rozciągnąć element).
+                </p>
+            </div>
+
+            <div class="przyklad" onchange="przyklad1()">
+                <div id="grid-p1" class="grid-przyklad" style="grid-template: 1fr 1fr 1fr 1fr / 1fr 1fr 1fr; gap: 10px;">
+                    <div class="grid-item">1</div>
+                    <div class="grid-item">2</div>
+                    <div class="grid-item" id="otter1" style="background-color: #9cddf1;">🦦</div>
+                    <div class="grid-item">3</div>
+                    <div class="grid-item">4</div>
+                </div>
+
+                <div class="przyciski flex">
+                    <code>
+                        #otter
+                    </code>
+
+                    <label class="butt">
+                        auto
+                        <input type="radio" name="p1" value="auto" id="p1-1" checked>
+                    </label>
+
+                    <label class="butt">
+                        grid-row-start: 2; <br>
+                        grid-row-end: 4;
+                        <input type="radio" name="p1" value="2 / 4" id="p1-2">
+                    </label>
+
+                    <label class="butt">
+                        grid-row-start: 1; <br>
+                        grid-row-end: -1;
+                        <input type="radio" name="p1" value="1 / -1" id="p1-3">
+                    </label>
+
+                    <label class="butt">
+                        grid-row-end: <br>
+                        span 3;
+                        <input type="radio" name="p1" value="auto / span 3" id="p1-4">
+                    </label>
+                </div>
+            </div>
+
+            <div class="opis">
+                <h2>grid-row</h2>
+                <p>
+                    Zamiast właściwości grid-row-start oraz grid-row-end możemy używać właściwości <strong>grid-row</strong>, która przyjmuje wartości:
+                </p>
+                <p>
+                    <strong>grid-row: grid-row-start / grid-row-end;</strong>
+                </p>
+            </div>
+
+            <div class="przyklad" onchange="przyklad2()">
+                <div id="grid-p2" class="grid-przyklad" style="grid-template: 1fr 1fr 1fr 1fr / 1fr 1fr 1fr; gap: 10px;">
+                    <div class="grid-item">1</div>
+                    <div class="grid-item">2</div>
+                    <div class="grid-item" id="otter2" style="background-color: #9cddf1;">🦦</div>
+                    <div class="grid-item">3</div>
+                    <div class="grid-item">4</div>
+                </div>
+
+                <div class="przyciski flex">
+                    <code>
+                        #otter
+                    </code>
+
+                    <label class="butt">
+                        auto
+                        <input type="radio" name="p2" value="auto" id="p2-1" checked>
+                    </label>
+
+                    <label class="butt">
+                        grid-row: -1 / 2;
+                        <input type="radio" name="p2" value="-1 / 2" id="p2-2">
+                    </label>
+
+                    <label class="butt">
+                        grid-row: 3 / auto;
+                        <input type="radio" name="p2" value="3 / auto" id="p2-3">
+                    </label>
+
+                    <label class="butt">
+                        grid-row: 1 <br>
+                        / span 3;
+                        <input type="radio" name="p2" value="1 / span 3" id="p2-4">
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../style/arkusz_zerujacy.css">
+    <link rel="stylesheet" href="../../style/podstrony.css">
+
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    <title>Grid - grid-template</title>
+
+    <script>
+        function przyklad1() {
+            for (let r of document.getElementsByName("p1")) {
+                if (r.checked) {
+                    document.querySelector("#grid-p1").style.gridTemplateRows = r.value;
+                    r.parentElement.style.backgroundColor = "#ca1f3d";
+                }
+                else {
+                    r.parentElement.style.backgroundColor = "#ffbe00";
+                }
+            }
+        }
+
+        function przyklad2() {
+            for (let r of document.getElementsByName("p2")) {
+                if (r.checked) {
+                    document.querySelector("#grid-p2").style.gridTemplateColumns = r.value;
+                    r.parentElement.style.backgroundColor = "#ca1f3d";
+                }
+                else {
+                    r.parentElement.style.backgroundColor = "#ffbe00";
+                }
+            }
+        }
+
+        function przyklad3() {
+            for (let r of document.getElementsByName("p3")) {
+                if (r.checked) {
+                    document.querySelector("#grid-p3").style.gridTemplate = r.value;
+                    r.parentElement.style.backgroundColor = "#ca1f3d";
+                }
+                else {
+                    r.parentElement.style.backgroundColor = "#ffbe00";
+                }
+            }
+        }
+
+        function szerokosc() {
+            document.getElementById("grid-p2").style.width = document.getElementById("szer").value + "px";
+            document.querySelector("output").textContent = "width: " + document.getElementById("szer").value + " px"
+        }
+
+        window.addEventListener("load", przyklad1);
+        window.addEventListener("load", przyklad2);
+        window.addEventListener("load", przyklad3);
+    </script>
+</head>
+
+<body>
+    <nav>
+        <ul class="menu">
+            <li class="arrow1"><a href="../info/grid-lines.html" >&#171;&#171;</a></li>
+
+            <li><p>czym jest grid?</p>
+                <ul class="dropdown" style="width: 190px;">
+                    <a href="../info/informacje.html"><li>ogólne informacje</li></a>
+                    <a href="../info/grid-lines.html"><li>grid lines</li></a>
+                    <a href="../info/wybor.html"><li>grid vs flexbox</li></a>
+                </ul>
+            </li>
+
+            <li><p>właściwości rodzica</p>
+                <ul class="dropdown" style="width: 260px;">
+                    <a href="template.html"><li>grid-template</li></a>
+                    <a href="gap.html"><li>gap</li></a>
+                    <a href="auto.html"><li>grid-auto</li></a>
+                    <a href="template-area.html"><li>grid-template-areas</li></a>
+                    <a href="justify-align.html"><li>justify i align</li></a>
+                </ul>
+            </li>
+
+            <li><p>właściwości dziecka</p>
+                <ul class="dropdown" style="width: 255px;">
+                    <a href="../dziecko/grid-column.html"><li>grid-column</li></a>
+                    <a href="../dziecko/grid-row.html"><li>grid-row</li></a>
+                    <a href="../dziecko/area.html"><li>grid-area</li></a>
+                    <a href="../dziecko/justify-align-self.html"><li>justify i align self</li></a>
+                </ul>
+            </li>
+
+            <li class="arrow2"><a href="auto.html" >&#187;&#187;</a></li>
+        </ul>
+    </nav>
+
+    <div class="cont">
+        <header>
+            <!-- <a href="#">&#171;&#171;</a> -->
+            <h1>Grid-template</h1>
+            <!-- <a href="#">&#187;&#187;</a> -->
+        </header>
+
+        <div class="opisy flex">
+            <div class="opis">
+                <h2>Wiersze i kolumny</h2>
+                <p>
+                    Liczbę rzędów i kolumn określamy na kontenerze za pomocą właściwości
+                    <br><strong>grid-template-rows</strong> oraz <strong>grid-template-columns</strong>.
+                </p>
+                <p>
+                    Przyjmują one wartości w dowolnych jednostkach CSS, oddzielone od siebie spacjami. Każda z nich
+                    oznacza jedną kolumnę lub wiersz.
+                </p>
+            </div>
+
+            <div class="opis">
+                <h2>grid-template-rows</h2>
+            </div>
+
+            <div class="przyklad" onchange="przyklad1()">
+                <div id="grid-p1" class="grid-przyklad" style="grid-template-rows: 70px 2fr 1fr 3fr;">
+                    <div class="grid-item" style="background-color: #ff7878;">1</div>
+                    <div class="grid-item" style="background-color: #ffa078;">2</div>
+                    <div class="grid-item" style="background-color: #ffdd78;">3</div>
+                    <div class="grid-item" style="background-color: #9cddf1;">4</div>
+                </div>
+
+                <div class="przyciski flex">
+                    <code>.grid-container
+                        <br>
+                        grid-template-rows:
+                    </code>
+
+                    <label class="butt">70px 2fr 1fr 3fr
+                        <input type="radio" name="p1" value="70px 2fr 1fr 3fr" id="p1-1" checked>
+                    </label>
+
+                    <label class="butt">10vh repeat(3, 1fr)
+                        <input type="radio" name="p1" value="10vh repeat(3, 1fr)" id="p1-2">
+                    </label>
+
+                    <label class="butt">10em auto auto 25%
+                        <input type="radio" name="p1" value="10em auto auto 25%" id="p1-3">
+                    </label>
+                </div>
+            </div>
+
+            <div class="opis">
+                <h2>grid-template-columns</h2>
+            </div>
+
+            <div class="przyklad" onchange="przyklad2()">
+                <div id="grid-p2" class="grid-przyklad" style="grid-template-columns: 70px 2fr 1fr 3fr;">
+                    <div class="grid-item" style="background-color: #ff7878;">1</div>
+                    <div class="grid-item" style="background-color: #ffa078;">2</div>
+                    <div class="grid-item" style="background-color: #ffdd78;">3</div>
+                    <div class="grid-item" style="background-color: #9cddf1;">4</div>
+                </div>
+
+                <div class="przyciski flex">
+                    <code>.grid-container
+                        <br>
+                        grid-template-columns:
+                    </code>
+
+                    <label class="butt">70px 2fr 1fr 3fr
+                        <input type="radio" name="p2" value="70px 2fr 1fr 3fr" id="p2-1" checked>
+                    </label>
+
+                    <label class="butt">50% auto auto 20%
+                        <input type="radio" name="p2" value="50% auto auto 20%" id="p2-2">
+                    </label>
+
+                    <label class="butt">15% 40px auto minmax(220px, 250px)
+                        <input type="radio" name="p2" value="15% 40px auto minmax(220px, 250px)" id="p2-3">
+                    </label>
+
+                    <input type="range" id="szer" min="300" value="510" max="510" step="10" onchange="szerokosc()">
+                    <output>width: 510 px</output>
+                </div>
+            </div>
+
+            <div class="opis">
+                <h2>grid-template</h2>
+                <p>
+                    Właściwość <strong>grid-template</strong> jest połączeniem właściwości grid-template-rows <br>
+                    i grid-template-columns. Definiuje ona liczbę wierszy i kolumn naszego grida jednocześnie.
+                </p>
+                <p>
+                    Najpierw definiujemy wiersze, a potem kolumny, oddzielając jedne od drugiach znakiem <strong>slashem
+                        (/)</strong>.
+                </p>
+            </div>
+
+            <div class="przyklad" onchange="przyklad3()">
+                <div id="grid-p3" class="grid-przyklad" style="grid-template: 70px 2fr 1fr / 1fr 3fr;">
+                    <div class="grid-item" style="background-color: #ff7878;">1</div>
+                    <div class="grid-item" style="background-color: #ffa078;">2</div>
+                    <div class="grid-item" style="background-color: #ffdd78;">3</div>
+                    <div class="grid-item" style="background-color: #9cddf1;">4</div>
+                    <div class="grid-item" style="background-color: #9cf090;">5</div>
+                    <div class="grid-item" style="background-color: #d39cf1;">6</div>
+                </div>
+
+                <div class="przyciski flex">
+                    <code>.grid-container
+                        <br>
+                        grid-template:
+                    </code>
+
+                    <label class="butt">70px 2fr 1fr / 1fr 3fr
+                        <input type="radio" name="p3" value="70px 2fr 1fr / 1fr 3fr" id="p3-1" checked>
+                    </label>
+
+                    <label class="butt">50% auto <br>/ 120px auto 20%
+                        <input type="radio" name="p3" value="50% auto / 120px auto 20%" id="p3-2">
+                    </label>
+
+                    <label class="butt">10vh 1fr 10em <br>/ 400px auto
+                        <input type="radio" name="p3" value="10vh 1fr 10em / 400px auto" id="p3-3">
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

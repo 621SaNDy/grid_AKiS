@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../style/arkusz_zerujacy.css">
+    <link rel="stylesheet" href="../../style/podstrony.css">
+
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    <title>Grid - wyrównywanie wewnątrz grida</title>
+
+    <style>
+        .grid-item {
+            background-color: #f78d8d;
+        }
+
+        #grid-p1 .grid-item {
+            width: 90px;
+        }
+
+        #grid-p2 .grid-item {
+            height: 90px;
+        }
+
+        #grid-p3 .grid-item {
+            padding: 20px;
+            height: 90px;
+        }
+
+        #grid-p4 .grid-item {
+            padding: 20px;
+            width: 90px;
+        }
+    </style>
+
+    <script>
+        function przyklad1() {
+            for (let r of document.getElementsByName("p1")) {
+                if (r.checked) {
+                    document.querySelector("#grid-p1").style.justifyContent = r.value;
+                    r.parentElement.style.backgroundColor = "#ca1f3d";
+                }
+                else {
+                    r.parentElement.style.backgroundColor = "#ffbe00";
+                }
+            }
+        }
+
+        function przyklad2() {
+            for (let r of document.getElementsByName("p2")) {
+                if (r.checked) {
+                    document.querySelector("#grid-p2").style.alignContent = r.value;
+                    r.parentElement.style.backgroundColor = "#ca1f3d";
+                }
+                else {
+                    r.parentElement.style.backgroundColor = "#ffbe00";
+                }
+            }
+        }
+
+        function przyklad3() {
+            for (let r of document.getElementsByName("p3")) {
+                if (r.checked) {
+                    document.querySelector("#grid-p3").style.justifyItems = r.value;
+                    r.parentElement.style.backgroundColor = "#ca1f3d";
+                }
+                else {
+                    r.parentElement.style.backgroundColor = "#ffbe00";
+                }
+            }
+        }
+
+        function przyklad4() {
+            for (let r of document.getElementsByName("p4")) {
+                if (r.checked) {
+                    document.querySelector("#grid-p4").style.alignItems = r.value;
+                    r.parentElement.style.backgroundColor = "#ca1f3d";
+                }
+                else {
+                    r.parentElement.style.backgroundColor = "#ffbe00";
+                }
+            }
+        }
+
+        window.addEventListener("load", przyklad1);
+        window.addEventListener("load", przyklad2);
+        window.addEventListener("load", przyklad3);
+        window.addEventListener("load", przyklad4);
+    </script>
+</head>
+
+<body>
+    <nav>
+        <ul class="menu">
+            <li class="arrow1"><a href="gap.html" >&#171;&#171;</a></li>
+
+            <li><p>czym jest grid?</p>
+                <ul class="dropdown" style="width: 190px;">
+                    <a href="../info/informacje.html"><li>ogólne informacje</li></a>
+                    <a href="../info/grid-lines.html"><li>grid lines</li></a>
+                    <a href="../info/wybor.html"><li>grid vs flexbox</li></a>
+                </ul>
+            </li>
+
+            <li><p>właściwości rodzica</p>
+                <ul class="dropdown" style="width: 260px;">
+                    <a href="template.html"><li>grid-template</li></a>
+                    <a href="gap.html"><li>gap</li></a>
+                    <a href="auto.html"><li>grid-auto</li></a>
+                    <a href="template-area.html"><li>grid-template-areas</li></a>
+                    <a href="justify-align.html"><li>justify i align</li></a>
+                </ul>
+            </li>
+
+            <li><p>właściwości dziecka</p>
+                <ul class="dropdown" style="width: 255px;">
+                    <a href="../dziecko/grid-column.html"><li>grid-column</li></a>
+                    <a href="../dziecko/grid-row.html"><li>grid-row</li></a>
+                    <a href="../dziecko/area.html"><li>grid-area</li></a>
+                    <a href="../dziecko/justify-align-self.html"><li>justify i align self</li></a>
+                </ul>
+            </li>
+
+            <li class="arrow2"><a href="../dziecko/justify-align-self.html" >&#187;&#187;</a></li>
+        </ul>
+    </nav>
+
+    <div class="cont">
+        <header>
+            <h1>Wyrównywanie wewnątrz grida</h1>
+        </header>
+
+        <div class="opisy flex">
+            <div class="opis">
+                <h2>justify-content</h2>
+                <p>
+                    Służy do rozmieszczania wszystkich elementów siatki wewnątrz kontenera według <strong>osi poziomej</strong>.
+                </p>
+                <p>
+                    Aby móc zastosować właściwość justify-content siatka musi mieć <strong> mniejszą szerokość </strong>
+                    od kontenera, w którym się znajduje.
+                </p>
+            </div>
+
+
+            <div class="przyklad" onchange="przyklad1()" style="height: 470px;">
+                <div id="grid-p1" class="grid-przyklad" style="grid-template-columns: repeat(3, auto); justify-content: center; gap: 10px">
+                        <div class="grid-item">1</div>
+                        <div class="grid-item">2</div>
+                        <div class="grid-item">3</div>
+                        <div class="grid-item">4</div>
+                        <div class="grid-item">5</div>
+                        <div class="grid-item">6</div>
+                        <div class="grid-item">7</div>
+                        <div class="grid-item">8</div>
+                        <div class="grid-item">9</div>
+                </div>
+                <div class="przyciski flex">
+                        <code>
+                        .grid-container <br>
+                        justify-content:
+                        </code>
+
+                    <label class="butt">center
+                        <input type="radio" name="p1" value="center" id="p1-1" checked>
+                    </label>
+
+                    <label class="butt">space-evenly
+                        <input type="radio" name="p1" value="space-evenly" id="p1-2">
+                    </label>
+
+                    <label class="butt">space-around
+                        <input type="radio" name="p1" value="space-around" id="p1-3">
+                    </label>
+
+                    <label class="butt">space-between
+                        <input type="radio" name="p1" value="space-between" id="p1-4">
+                    </label>
+
+                    <label class="butt">start
+                        <input type="radio" name="p1" value="start" id="p1-5">
+                    </label>
+
+                    <label class="butt">end
+                        <input type="radio" name="p1" value="end" id="p1-6">
+                    </label>
+                </div>
+            </div>
+
+            <div class="opis">
+                <h2>align-content</h2>
+                <p>
+                    Służy do rozmieszczania wszystkich elementów siatki wewnątrz kontenera według <strong>osi pionowej</strong>.
+                </p>
+                <p>
+                    Aby móc zastosować właściwość align-content siatka musi mieć <strong>mniejszą wysokość </strong> od
+                    kontenera, w którym się znajduje.
+                </p>
+            </div>
+
+            <div class="przyklad" onchange="przyklad2()" style="height: 470px;">
+                <div id="grid-p2" class="grid-przyklad" style="grid-template-columns: repeat(3, auto); align-content: center; gap: 10px">
+                    <div class="grid-item">1</div>
+                    <div class="grid-item">2</div>
+                    <div class="grid-item">3</div>
+                    <div class="grid-item">4</div>
+                    <div class="grid-item">5</div>
+                    <div class="grid-item">6</div>
+                    <div class="grid-item">7</div>
+                    <div class="grid-item">8</div>
+                    <div class="grid-item">9</div>
+                </div>
+
+                <div class="przyciski flex">
+                    <code>
+                        .grid-container <br>
+                        align-content:
+                    </code>
+
+                    <label class="butt">center
+                        <input type="radio" name="p2" value="center" id="p2-1" checked>
+                    </label>
+
+                    <label class="butt">space-evenly
+                        <input type="radio" name="p2" value="space-evenly" id="p2-2">
+                    </label>
+
+                    <label class="butt">space-around
+                        <input type="radio" name="p2" value="space-around" id="p2-3">
+                    </label>
+
+                    <label class="butt">space-between
+                        <input type="radio" name="p2" value="space-between" id="p2-4">
+                    </label>
+
+                    <label class="butt">start
+                        <input type="radio" name="p2" value="start" id="p2-5">
+                    </label>
+
+                    <label class="butt">end
+                        <input type="radio" name="p2" value="end" id="p2-6">
+                    </label>
+                </div>
+            </div>
+
+            
+
+            <div class="opis">
+                <h2>justify-items</h2>
+                <p>
+                    Służy do rozmieszczania elementów mającyh mniejszą szerokość niż kolumna, w której się
+                    znajdują. Elementy równane są względem <strong>pionowej osi danej kolumny</strong>, a
+                    rozmieszczane na osiach
+                    poziomych.
+                </p>
+            </div>
+
+            <div class="przyklad" onchange="przyklad3()" style="height: 470px;">
+
+                <div id="grid-p3" class="grid-przyklad"
+                    style="grid-template-columns: repeat(3, auto); justify-items: center; gap: 10px;">
+                    <div class="grid-item">1</div>
+                    <div class="grid-item">2</div>
+                    <div class="grid-item">3</div>
+                    <div class="grid-item">4</div>
+                    <div class="grid-item">5</div>
+                    <div class="grid-item">6</div>
+                    <div class="grid-item">7</div>
+                    <div class="grid-item">8</div>
+                    <div class="grid-item">9</div>
+                </div>
+
+                <div class="przyciski flex">
+                    <code>
+                        .grid-container <br>
+                        justify-items:
+                    </code>
+
+                    <label class="butt">center
+                        <input type="radio" name="p3" value="center" id="p3-1" checked>
+                    </label>
+
+                    <label class="butt">left
+                        <input type="radio" name="p3" value="left" id="p3-2">
+                    </label>
+
+                    <label class="butt">right
+                        <input type="radio" name="p3" value="right" id="p3-3">
+                    </label>
+
+                    <label class="butt">stretch
+                        <input type="radio" name="p3" value="stretch" id="p3-4">
+                    </label>
+
+                    <label class="butt">start
+                        <input type="radio" name="p3" value="start" id="p3-5">
+                    </label>
+
+                    <label class="butt">end
+                        <input type="radio" name="p3" value="end" id="p3-6">
+                    </label>
+                </div>
+            </div>
+
+            <div class="opis">
+                <h2>align-items</h2>
+                <p>
+                    Służy do wyrównywania elementów <strong> wewnątrz ich komórek na osi pionowej</strong>.
+                    Elementy muszę mieć mniejszą wysokość niż wiersz, w którym się znajdują.
+                </p>
+            </div>
+
+            
+
+            
+
+            
+
+            
+
+
+
+            
+
+            <div class="przyklad" onchange="przyklad4()" style="height: 470px;">
+                <div id="grid-p4" class="grid-przyklad"
+                    style="grid-template-columns: repeat(3, auto); align-items: center; gap: 10px">
+                    <div class="grid-item">1</div>
+                    <div class="grid-item">2</div>
+                    <div class="grid-item">3</div>
+                    <div class="grid-item">4</div>
+                    <div class="grid-item">5</div>
+                    <div class="grid-item">6</div>
+                    <div class="grid-item">7</div>
+                    <div class="grid-item">8</div>
+                    <div class="grid-item">9</div>
+                </div>
+
+                <div class="przyciski flex">
+                    <code>
+                        .grid-container <br>
+                        align-items:
+                    </code>
+
+                    <label class="butt">center
+                        <input type="radio" name="p4" value="center" id="p4-1" checked>
+                    </label>
+
+                    <label class="butt">start
+                        <input type="radio" name="p4" value="start" id="p4-2">
+                    </label>
+
+                    <label class="butt">end
+                        <input type="radio" name="p4" value="end" id="p4-3">
+                    </label>
+
+                    <label class="butt">stretch
+                        <input type="radio" name="p4" value="stretch" id="p4-4">
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

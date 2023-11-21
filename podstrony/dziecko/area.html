@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../style/arkusz_zerujacy.css">
+    <link rel="stylesheet" href="../../style/podstrony.css">
+
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    <title>Grid - grid-area</title>
+
+    <style>
+        .grid-item {
+            background-color: #f78d8d;
+        }
+
+        #grid-p3 {
+            grid-template-areas: 
+            'header header header'
+            'main main aside'
+            'main main aside';
+        }
+    </style>
+
+    <script>
+        function przyklad1() {
+            for (let r of document.getElementsByName("p1")) {
+                if (r.checked) {
+                    document.querySelector("#otter1").style.gridArea = r.value;
+                    r.parentElement.style.backgroundColor = "#ca1f3d";
+                }
+                else {
+                    r.parentElement.style.backgroundColor = "#ffbe00";
+                }
+            }
+
+            for (let r of document.getElementsByName("p2")) {
+                if (r.checked) {
+                    document.querySelector("#monkey1").style.gridArea = r.value;
+                    r.parentElement.style.backgroundColor = "#ca1f3d";
+                }
+                else {
+                    r.parentElement.style.backgroundColor = "#ffbe00";
+                }
+            }
+        }
+
+        function przyklad3() {
+            for (let r of document.getElementsByName("p3")) {
+                if (r.checked) {
+                    document.querySelector("#otter3").style.gridArea = r.value;
+                    r.parentElement.style.backgroundColor = "#ca1f3d";
+                }
+                else {
+                    r.parentElement.style.backgroundColor = "#ffbe00";
+                }
+            }
+        }
+
+        window.addEventListener("load", przyklad1);
+        window.addEventListener("load", przyklad3);
+    </script>
+</head>
+
+<body>
+    <nav>
+        <ul class="menu">
+            <li class="arrow1"><a href="grid-column.html">&#171;&#171;</a></li>
+
+            <li><p>czym jest grid?</p>
+                <ul class="dropdown" style="width: 190px;">
+                    <a href="../info/informacje.html"><li>ogólne informacje</li></a>
+                    <a href="../info/grid-lines.html"><li>grid lines</li></a>
+                    <a href="../info/wybor.html"><li>grid vs flexbox</li></a>
+                </ul>
+            </li>
+
+            <li><p>właściwości rodzica</p>
+                <ul class="dropdown" style="width: 260px;">
+                    <a href="../rodzic/template.html"><li>grid-template</li></a>
+                    <a href="../rodzic/gap.html"><li>gap</li></a>
+                    <a href="../rodzic/auto.html"><li>grid-auto</li></a>
+                    <a href="../rodzic/template-area.html"><li>grid-template-areas</li></a>
+                    <a href="../rodzic/justify-align.html"><li>justify i align</li></a>
+                </ul>
+            </li>
+
+            <li><p>właściwości dziecka</p>
+                <ul class="dropdown" style="width: 255px;">
+                    <a href="grid-column.html"><li>grid-column</li></a>
+                    <a href="grid-row.html"><li>grid-row</li></a>
+                    <a href="area.html"><li>grid-area</li></a>
+                    <a href="justify-align-self.html"><li>justify i align self</li></a>
+                </ul>
+            </li>
+
+            <li class="arrow2"><a href="../rodzic/template-area.html">&#187;&#187;</a></li>
+        </ul>
+    </nav>
+
+    <div class="cont">
+        <header>
+            <h1>Grid-area</h1>
+        </header>
+
+        <div class="opisy flex">
+            <div class="opis">
+                <p>
+                    Właściwość <strong>grid-area</strong> określa, jaki obszar ma zajmować element.
+                </p>
+                <p>
+                    Wartości przez nią przyjmowane to połączenie <strong>grid-column</strong> i <strong>grid-row</strong> lub <strong>nazwa obszaru</strong>, wykorzystywana potem przez właściwość <strong>grid-template-areas</strong> ustawioną na kontenerze.
+                </p>
+            </div>
+
+            <div class="opis">
+                <h2>Wiersze i kolumny</h2>
+                <p>grid-area:
+                <strong>
+                    grid-row-start / grid-column-start / grid-row-end / grid-column-end;
+                </strong></p>
+            </div>
+
+            <div class="przyklad" onchange="przyklad1()" style="height: 520px;">
+                <div id="grid-p1" class="grid-przyklad" style="grid-template: repeat(3, 160px) / 1fr 1fr 1fr; gap: 10px; overflow: hidden;">
+                    <div class="grid-item">1</div>
+                    <div class="grid-item">2</div>
+                    <div class="grid-item">3</div>
+                    <div class="grid-item">4</div>
+                    <div class="grid-item">5</div>
+                    <div class="grid-item" id="otter1" style="background-color: #9cddf1; padding: 10px;">🦦</div>
+                    <div class="grid-item" id="monkey1" style="background-color: #bce79d;">🐒</div>
+                </div>
+
+                <div class="przyciski flex">
+                    <code>
+                        #otter
+                    </code>
+
+                    <label class="butt">1 / 2 / 3 / 4
+                        <input type="radio" name="p1" value="1 / 2 / 3 / 4" id="p1-1" checked>
+                    </label>
+    
+                    <label class="butt">1 / -1 / span 3 / -2
+                        <input type="radio" name="p1" value="1 / -1 / span 3 / -2" id="p1-2">
+                    </label>
+
+                    <label class="butt">2 / 2 / 3 / span 2
+                        <input type="radio" name="p1" value="2 / 2 / 3 / span 2" id="p1-3">
+                    </label>
+
+                    <code style="margin-top: 10px;">
+                        #monkey
+                    </code>
+
+                    <label class="butt">-2 / 1 / -1 / span 3
+                        <input type="radio" name="p2" value="-2 / 1 / -1 / span 3" id="p2-1" checked>
+                    </label>
+                    
+                    <label class="butt">2 / 1 / -1 / 3
+                        <input type="radio" name="p2" value="2 / 1 / -1 / 3" id="p2-2">
+                    </label>
+
+                    <label class="butt">1 / 1 / 3 / 2
+                        <input type="radio" name="p2" value="1 / 1 / 3 / 2" id="p2-3">
+                    </label>
+                </div>
+            </div>
+
+            <div class="opis">
+                <h2>Nazwa obszaru</h2>
+            </div>
+
+            <div class="przyklad" onchange="przyklad3()" style="height: 520px;">
+                <div id="grid-p3" class="grid-przyklad" style="gap: 10px; overflow: hidden;">
+                    <div class="grid-item" style="grid-area: header;">Header</div>
+                    <div class="grid-item" style="grid-area: main;">Main</div>
+                    <div class="grid-item" style="grid-area: aside;">Aside</div>
+                    <div class="grid-item" id="otter3" style="background-color: #9cddf1; padding: 10px; z-index: 100;">🦦</div>
+                </div>
+
+                <div class="przyciski flex">
+                    <code>
+                        .grid-container { <br>
+                            <div style="padding-left: 10px;">
+                            grid-template-areas: <br>
+                            'header header header' <br>
+                            'main main aside' <br>
+                            'main main aside';
+                            </div>
+                        }
+                    </code>
+
+                    <code>
+                        #otter <br>
+                        grid-area:
+                    </code>
+
+                    <label class="butt">header
+                        <input type="radio" name="p3" value="header" id="p1-3" checked>
+                    </label>
+    
+                    <label class="butt">main
+                        <input type="radio" name="p3" value="main" id="p3-2">
+                    </label>
+
+                    <label class="butt">aside
+                        <input type="radio" name="p3" value="aside" id="p3-3">
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

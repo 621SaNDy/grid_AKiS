@@ -48,6 +48,18 @@
             }
         }
 
+        function przyklad4() {
+            for (let r of document.getElementsByName("p4")) {
+                if (r.checked) {
+                    document.querySelector("#grid-p4").style.gridTemplateColumns = r.value;
+                    r.parentElement.style.backgroundColor = "#ca1f3d";
+                }
+                else {
+                    r.parentElement.style.backgroundColor = "#ffbe00";
+                }
+            }
+        }
+
         function szerokosc() {
             document.getElementById("grid-p2").style.width = document.getElementById("szer").value + "px";
             document.querySelector("output").textContent = "width: " + document.getElementById("szer").value + " px"
@@ -179,6 +191,42 @@
 
                     <input type="range" id="szer" min="300" value="510" max="510" step="10" onchange="szerokosc()">
                     <output>width: 510 px</output>
+                </div>
+            </div>
+
+            <div class="opis">
+                <h2 style="text-align: center;">auto-fit i auto-fill na przykładzie grid-template-columns</h2>
+                <p>auto-fill i auto-fit informują przeglądarkę że ma automatycznie dostosować ilość (w tym przypadku) kolumn do ilości elementów i szerokości rodzica</p>
+                <p>Główna różnica tych właściwości polega na tym co robią z pozostałą przestrzenią. Auto-fit pozostawia ją niezdefiniowaną a auto-fill wypełnia</p>
+            </div>
+
+            <div class="przyklad" onchange="przyklad4()">
+                <div id="grid-p4" class="grid-przyklad" style="grid-template-columns: 70px 2fr 1fr 3fr;">
+                    <div class="grid-item" style="background-color: #ff7878;">1</div>
+                    <div class="grid-item" style="background-color: #ffa078;">2</div>
+                    <div class="grid-item" style="background-color: #ffdd78;">3</div>
+                    <div class="grid-item" style="background-color: #9cddf1;">4</div>
+                    <div class="grid-item" style="background-color: #9cf090;">5</div>
+                    <div class="grid-item" style="background-color: #d39cf1;">6</div>
+                </div>
+
+                <div class="przyciski flex">
+                    <code>.grid-container
+                        <br>
+                        grid-template-columns:
+                    </code>
+                    <label class="butt">repeat( auto-fit, minmax(250px, 1fr) )
+                        <input type="radio" name="p4" value="repeat( auto-fit, minmax(250px, 1fr) )" id="p2-1" checked>
+                    </label>
+
+                    <label class="butt">repeat( auto-fill, minmax(10px, 50px) )
+                        <input type="radio" name="p4" value="repeat( auto-fill, minmax(10px, 50px) )" id="p2-2">
+                    </label>
+                    
+
+                    <label class="butt">repeat( auto-fit, minmax(10px, 50px) )
+                        <input type="radio" name="p4" value="repeat( auto-fit, minmax(10px, 50px) )" id="p2-3">
+                    </label>
                 </div>
             </div>
 

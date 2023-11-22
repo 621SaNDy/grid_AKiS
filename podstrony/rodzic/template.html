@@ -62,12 +62,17 @@
 
         function szerokosc() {
             document.getElementById("grid-p2").style.width = document.getElementById("szer").value + "px";
-            document.querySelector("output").textContent = "width: " + document.getElementById("szer").value + " px"
+            document.querySelector("#out1").textContent = "width: " + document.getElementById("szer").value + " px"
+        }
+        function szerokosc2() {
+            document.getElementById("grid-p4").style.width = document.getElementById("szer2").value + "px";
+            document.querySelector("#out2").textContent = "width: " + document.getElementById("szer2").value + " px"
         }
 
         window.addEventListener("load", przyklad1);
         window.addEventListener("load", przyklad2);
         window.addEventListener("load", przyklad3);
+        window.addEventListener("load", przyklad4);
     </script>
 </head>
 
@@ -190,12 +195,12 @@
                     </label>
 
                     <input type="range" id="szer" min="300" value="510" max="510" step="10" onchange="szerokosc()">
-                    <output>width: 510 px</output>
+                    <output id="out1">width: 510 px</output>
                 </div>
             </div>
 
             <div class="opis">
-                <h2 style="text-align: center;">auto-fit i auto-fill na przykładzie grid-template-columns</h2>
+                <h2 style="text-align: center;">auto-fit i auto-fill na przykładzie <br>grid-template-columns</h2>
                 <p>auto-fill i auto-fit informują przeglądarkę że ma automatycznie dostosować ilość (w tym przypadku) kolumn do ilości elementów i szerokości rodzica</p>
                 <p>Główna różnica tych właściwości polega na tym co robią z pozostałą przestrzenią. Auto-fit pozostawia ją niezdefiniowaną a auto-fill wypełnia</p>
             </div>
@@ -227,6 +232,9 @@
                     <label class="butt">repeat( auto-fit, minmax(10px, 50px) )
                         <input type="radio" name="p4" value="repeat( auto-fit, minmax(10px, 50px) )" id="p2-3">
                     </label>
+
+                    <input type="range" id="szer2" min="310" value="510" max="510" step="10" onchange="szerokosc2()">
+                    <output id="out2">width: 510 px</output>
                 </div>
             </div>
 

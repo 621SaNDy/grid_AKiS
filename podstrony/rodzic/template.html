@@ -194,15 +194,22 @@
                         <input type="radio" name="p2" value="15% 40px auto minmax(220px, 250px)" id="p2-3">
                     </label>
 
-                    <input type="range" id="szer" min="300" value="510" max="510" step="10" onchange="szerokosc()">
+                    <input type="range" id="szer" min="300" value="510" max="510" step="10" oninput="szerokosc()">
                     <output id="out1">width: 510 px</output>
                 </div>
             </div>
 
             <div class="opis">
                 <h2 style="text-align: center;">auto-fit i auto-fill na przykładzie <br>grid-template-columns</h2>
-                <p><strong>auto-fill</strong> i <strong>auto-fit</strong> informują przeglądarkę że ma automatycznie dostosować ilość (w tym przypadku) kolumn do ilości elementów i szerokości rodzica</p>
-                <p>Główna różnica tych właściwości polega na tym co robią z pozostałą przestrzenią. <strong>Auto-fit</strong> pozostawia ją niezdefiniowaną a <strong>auto-fill</strong> wypełnia</p>
+                <p>
+                    Wartości <strong>auto-fill</strong> i <strong>auto-fit</strong> informują przeglądarkę, że ma automatycznie dostosować liczbę (w tym przypadku) kolumn do liczby elementów i szerokości rodzica.
+                </p>
+                <p>
+                    Główna różnica tych właściwości polega na tym, co robią z pozostałą przestrzenią.
+                </p>
+                <p>
+                    <strong>Auto-fit</strong> pozostawia ją niezdefiniowaną, a <strong>auto-fill</strong> wypełnia.
+                </p>
             </div>
 
             <div class="przyklad" onchange="przyklad4()">
@@ -220,20 +227,20 @@
                         <br>
                         grid-template-columns:
                     </code>
-                    <label class="butt">repeat( auto-fit, minmax(250px, 1fr) )
-                        <input type="radio" name="p4" value="repeat( auto-fit, minmax(250px, 1fr) )" id="p2-1" checked>
+                    <label class="butt">repeat(auto-fit, minmax(250px, 1fr))
+                        <input type="radio" name="p4" value="repeat(auto-fit, minmax(250px, 1fr))" id="p4-1" checked>
                     </label>
 
-                    <label class="butt">repeat( auto-fill, minmax(10px, 50px) )
-                        <input type="radio" name="p4" value="repeat( auto-fill, minmax(10px, 50px) )" id="p2-2">
+                    <label class="butt">repeat(auto-fill, minmax(10px, 50px))
+                        <input type="radio" name="p4" value="repeat(auto-fill, minmax(10px, 50px))" id="p4-2">
                     </label>
                     
 
-                    <label class="butt">repeat( auto-fit, minmax(10px, 50px) )
-                        <input type="radio" name="p4" value="repeat( auto-fit, minmax(10px, 50px) )" id="p2-3">
+                    <label class="butt">repeat(auto-fit, minmax(10px, 50px))
+                        <input type="radio" name="p4" value="repeat(auto-fit, minmax(10px, 50px))" id="p4-3">
                     </label>
 
-                    <input type="range" id="szer2" min="310" value="510" max="510" step="10" onchange="szerokosc2()">
+                    <input type="range" id="szer2" min="310" value="510" max="510" step="10" oninput="szerokosc2()">
                     <output id="out2">width: 510 px</output>
                 </div>
             </div>
